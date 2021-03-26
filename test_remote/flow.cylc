@@ -1,0 +1,27 @@
+[meta]
+title = "Very basic suite"
+[scheduler]
+    UTC mode = True
+    allow implicit tasks = True
+[scheduling]
+    initial cycle point = 20110317T0600Z
+
+    [[dependencies]]
+    graph = Ding => Dang => Dong
+
+
+[runtime]
+    [[DONG]]
+        script="sleep 3; echo hello"
+    [[Dang]]
+        inherit=DONG
+        platform=exvcylcdev01
+    [[Deng]]
+        inherit=DONG
+        platform=localhost
+    [[Ding]]
+        inherit=DONG
+        platform=exvcylcdev01
+    [[Dung]]
+        inherit=DONG
+        platform=localhost
